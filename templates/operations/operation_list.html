@@ -1,0 +1,51 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="container mt-4">
+  <h1 class="mb-3">Список операцій</h1>
+
+  <a href="{% url 'users:doctor-dashboard' %}" class="btn btn-secondary mb-3">Назад до дашборду</a>
+  <a href="{% url 'pet:operation-create' %}" class="btn btn-primary mb-3">Додати операцію</a>
+
+  <ul class="list-group">
+    {% for operation in page_obj %}
+      <li class="list-group-item">
+        <a href="{% url 'pet:operation-detail' operation.id %}">
+          {{ operation.pet.nickname }} — {{ operation.date|date:"d.m.Y H:i" }}
+        </a>
+      </li>
+    {% empty %}
+      <li class="list-group-item text-muted">Операцій ще немає</li>
+    {% endfor %}
+  </ul>
+
+  {% if is_paginated %}
+    <nav aria-label="Page navigation" class="mt-3">
+      <ul class="pagination">
+        {% if page_obj.has_previous %}
+          <li class="page-item">
+            <a class="page-link" href="?page={{ page_obj.previous_page_number }}">Попередня</a>
+          </li>
+        {% else %}
+          <li class="page-item disabled"><span class="page-link">Попередня</span></li>
+        {% endif %}
+
+        {% for num in paginator.page_range %}
+          {% if page_obj.number == num %}
+            <li class="page-item active"><span class="page-link">{{ num }}</span></li>
+          {% else %}
+            <li class="page-item"><a class="page-link" href="?page={{ num }}">{{ num }}</a></li>
+          {% endif %}
+        {% endfor %}
+
+        {% if page_obj.has_next %}
+          <li class="page-item">
+            <a class="page-link" href="?page={{ page_obj.next_page_number }}">Наступна</a>
+          </li>
+        {% else %}
+          <li class="page-item disabled"><span class="page-link">Наступна</span></li>
+        {% endif %}
+      </ul>
+    </nav>
+  {% endif %}
+</div>
+{% endblock %}

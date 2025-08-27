@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="container mt-4">
+  <h2>Операція для {{ operation.pet.nickname }}</h2>
+  <p><strong>Дата:</strong> {{ operation.date|date:"d.m.Y H:i" }}</p>
+  <p><strong>Опис:</strong> {{ operation.description }}</p>
+  <p><strong>Лікарі:</strong>
+    {% for doctor in operation.doctors.all %}
+      {{ doctor.first_name }} {{ doctor.last_name }}{% if not forloop.last %}, {% endif %}
+    {% endfor %}
+  </p>
+  <a href="{% url 'pet:operation-update' operation.id %}" class="btn btn-warning">Редагувати</a>
+  <a href="{% url 'pet:operation-delete' operation.id %}" class="btn btn-danger">Видалити</a>
+  <a href="{% url 'pet:operation-list' %}" class="btn btn-secondary">Назад</a>
+</div>
+{% endblock %}

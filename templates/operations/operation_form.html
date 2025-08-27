@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="container mt-4">
+  <h2>{% if object %}Редагувати{% else %}Нова{% endif %} операція</h2>
+  <form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit" class="btn btn-success">Зберегти</button>
+    <a href="{% url 'pet:operation-list' %}" class="btn btn-secondary">Скасувати</a>
+  </form>
+</div>
+{% endblock %}

@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container mt-5">
+  <div class="card shadow-lg rounded-3 p-4">
+    <h2 class="text-danger fw-bold mb-3">Видалити медичну інформацію</h2>
+    <p>Ви дійсно хочете видалити діагноз для <strong>{{ object.pet.nickname }}</strong>?</p>
+
+    <form method="post">
+      {% csrf_token %}
+      <button type="submit" class="btn btn-danger">Видалити</button>
+      <a href="{% url 'users:doctor-dashboard' %}?user_id={{ object.pet.owner.id }}" class="btn btn-secondary">Скасувати</a>
+    </form>
+  </div>
+</div>
+{% endblock %}

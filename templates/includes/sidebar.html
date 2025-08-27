@@ -1,0 +1,32 @@
+<ul class="sidebar-nav list-unstyled p-3 bg-light shadow rounded-4" style="width: 220px;">
+  {% if request.user.is_authenticated %}
+    <li class="mb-3 text-center">
+      <form method="post" action="{% url 'logout' %}">
+        {% csrf_token %}
+        <button type="submit" class="btn btn-outline-danger w-100 fw-semibold shadow-sm"
+                style="transition: all 0.2s;"
+                onmouseover="this.style.transform='scale(1.05)'"
+                onmouseout="this.style.transform='scale(1)'">
+          Вийти
+        </button>
+      </form>
+    </li>
+  {% else %}
+    <li class="mb-2">
+      <a href="{% url 'users:profile-login' %}" class="btn btn-outline-primary w-100 fw-semibold shadow-sm"
+         style="transition: all 0.2s;"
+         onmouseover="this.style.transform='scale(1.05)'"
+         onmouseout="this.style.transform='scale(1)'">
+        Увійти
+      </a>
+    </li>
+    <li>
+      <a href="{% url 'users:register' %}" class="btn btn-success w-100 fw-semibold shadow-sm mt-2"
+         style="transition: all 0.2s;"
+         onmouseover="this.style.transform='scale(1.05)'"
+         onmouseout="this.style.transform='scale(1)'">
+        Зареєструватися
+      </a>
+    </li>
+  {% endif %}
+</ul>

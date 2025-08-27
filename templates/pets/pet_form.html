@@ -1,0 +1,48 @@
+{% extends "base.html" %}
+{% load widget_tweaks %}
+{% block content %}
+<div class="container-fluid bg-light py-5">
+  <div class="d-flex justify-content-center">
+    <div class="card shadow-lg border-0 rounded-4" style="max-width: 520px; width: 100%;">
+      <div class="card-body p-5">
+      
+        <h2 class="text-center fw-bold text-success mb-3">
+          🐾 Новий улюбленець
+        </h2>
+        <p class="text-center text-muted mb-4">
+          Заповніть інформацію про свого пухнастика, щоб зберегти його в профілі
+        </p>
+      
+        <form method="post" novalidate>
+          {% csrf_token %}
+
+          {% for field in form %}
+            <div class="mb-4">
+              <label class="form-label fw-semibold">{{ field.label }}</label>
+              {{ field|add_class:"form-control shadow-sm rounded-3" }}
+              {% if field.help_text %}
+                <div class="form-text text-muted small">{{ field.help_text }}</div>
+              {% endif %}
+              {% for error in field.errors %}
+                <div class="text-danger small">{{ error }}</div>
+              {% endfor %}
+            </div>
+          {% endfor %}
+        
+          <div class="d-flex justify-content-between mt-4">
+            <a href="{% url 'users:profile' %}" 
+               class="btn btn-outline-secondary px-4 rounded-pill shadow-sm">
+              ← Назад
+            </a>
+            <button type="submit" 
+                    class="btn btn-success px-4 rounded-pill shadow-sm">
+              ➕ Додати
+            </button>
+          </div>
+        </form>
+
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}

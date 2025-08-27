@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container my-5">
+  <div class="row justify-content-center">
+    <div class="col-md-6 col-lg-5">
+      <div class="card shadow-lg rounded-4 border-0">
+        <div class="card-body p-4 text-center">
+          <h2 class="text-danger fw-bold mb-4">⚠️ Видалити {{ object.nickname }}?</h2>
+          <p class="mb-4">Ця дія є незворотною. Ви дійсно хочете видалити цього улюбленця?</p>
+
+          <form method="post">
+            {% csrf_token %}
+            <div class="d-flex justify-content-center gap-3">
+              <button type="submit" class="btn btn-danger px-4">Видалити</button>
+              <a href="{% url 'users:profile' %}" class="btn btn-secondary px-4">Скасувати</a>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}

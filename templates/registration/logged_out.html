@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container mt-5">
+  <div class="card shadow-sm rounded-3 text-center p-4">
+    <div class="card-body">
+      <h2 class="text-danger mb-3">Ви вийшли з профілю</h2>
+      <p class="text-muted">Дякуємо, що були з нами. Сподіваємось побачити вас знову!</p>
+      <a href="{% url 'login' %}" class="btn btn-primary mt-3">
+        🔑 Увійти знову
+      </a>
+    </div>
+  </div>
+</div>
+{% endblock %}

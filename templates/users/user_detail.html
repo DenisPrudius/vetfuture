@@ -1,0 +1,78 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container my-5">
+
+  <div class="text-center mb-5">
+    <h1 class="fw-bold text-primary">
+      <i class="fas fa-user-md me-2"></i>Особистий кабінет
+    </h1>
+    <p class="text-muted">Ласкаво просимо, <span class="fw-semibold">{{ user.username }}</span>!</p>
+  </div>
+
+  <div class="row g-4">
+    <div class="col-lg-4">
+      <div class="card border-0 shadow-lg rounded-4 h-100">
+        <div class="card-body">
+          <h4 class="card-title text-primary mb-4">
+            <i class="fas fa-id-card me-2"></i>Мої дані
+          </h4>
+          <p><strong>Email:</strong> {{ user.email }}</p>
+          <p><strong>Ім'я:</strong> {{ user.first_name }}</p>
+          <p><strong>Прізвище:</strong> {{ user.last_name }}</p>
+          <a href="{% url 'users:profile_update' %}" class="btn btn-outline-primary w-100">
+            ✏️ Змінити профіль
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-lg-8">
+      <div class="card border-0 shadow-lg rounded-4 h-100">
+        <div class="card-body">
+          <h4 class="card-title text-success mb-4">
+            <i class="fas fa-paw me-2"></i>Ваші улюбленці
+          </h4>
+
+          {% if pets %}
+            <ul class="list-group list-group-flush">
+              {% for pet in pets %}
+                <li class="list-group-item d-flex justify-content-between align-items-center">
+                  <div>
+                    <i class="fas fa-dog text-secondary me-2"></i>
+                    <a href="{% url 'pet:pet-detail' pk=pet.id %}" class="text-decoration-none fw-semibold text-dark">
+                      {{ pet.nickname }}
+                    </a>
+                  </div>
+                  <a href="{% url 'pet:pet-delete' pk=pet.id %}" class="btn btn-sm btn-outline-danger">
+                     🗑 Видалити
+                  </a>
+
+                </li>
+              {% endfor %}
+            </ul>
+          {% else %}
+            <p class="text-muted fst-italic">У вас ще немає улюбленців 🐕🐈.</p>
+          {% endif %}
+
+          <div class="mt-4 text-center">
+            <a href="{% url 'pet:pet-create' %}" class="btn btn-success px-4 py-2 rounded-pill shadow-sm">
+              ➕ Додати улюбленця
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="text-center mt-5">
+    <form method="post" action="{% url 'logout' %}" style="display:inline;">
+      {% csrf_token %}
+      <button type="submit" class="btn btn-lg btn-danger px-4 py-2 rounded-pill shadow">
+        🚪 Вийти з профілю
+      </button>
+    </form>
+  </div>
+
+</div>
+{% endblock %}
