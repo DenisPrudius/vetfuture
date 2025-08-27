@@ -1,0 +1,109 @@
+body {
+    font-family: "Inter", "Segoe UI", Roboto, sans-serif;
+    background-color: #f8fafc;
+    color: #333;
+    line-height: 1.6;
+}
+
+
+h1, h2, h3, h4, h5 {
+    font-weight: 700;
+    color: #2c3e50;
+}
+
+
+:root {
+    --primary-color: #1abc9c;
+    --secondary-color: #3498db;
+    --danger-color: #e74c3c;
+    --success-color: #2ecc71;
+    --light-bg: #ffffff;
+    --card-shadow: 0 4px 12px rgba(0,0,0,0.08);
+}
+
+
+.card {
+    border: none;
+    border-radius: 1rem;
+    box-shadow: var(--card-shadow);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.12);
+}
+
+
+.btn {
+    border-radius: 50px;
+    font-weight: 600;
+    padding: 0.6rem 1.4rem;
+    transition: all 0.3s ease;
+}
+
+.btn-primary {
+    background-color: var(--primary-color);
+    border: none;
+}
+.btn-primary:hover {
+    background-color: #16a085;
+}
+
+.btn-success {
+    background-color: var(--success-color);
+    border: none;
+}
+.btn-success:hover {
+    background-color: #27ae60;
+}
+
+.btn-danger {
+    background-color: var(--danger-color);
+    border: none;
+}
+.btn-danger:hover {
+    background-color: #c0392b;
+}
+
+.btn-outline-secondary {
+    border: 2px solid var(--secondary-color);
+    color: var(--secondary-color);
+    background: transparent;
+}
+.btn-outline-secondary:hover {
+    background: var(--secondary-color);
+    color: #fff;
+}
+
+
+.list-group-item {
+    border: none;
+    padding: 1rem 1.2rem;
+    transition: background-color 0.2s ease;
+}
+.list-group-item:hover {
+    background-color: #ecf9f7;
+}
+
+
+.navbar {
+    background-color: var(--primary-color);
+}
+.navbar .nav-link, .navbar-brand {
+    color: #fff !important;
+    font-weight: 600;
+}
+.navbar .nav-link:hover {
+    color: #ecf0f1 !important;
+}
+
+
+footer {
+    margin-top: 4rem;
+    padding: 2rem 0;
+    background-color: #2c3e50;
+    color: #ecf0f1;
+    text-align: center;
+    border-radius: 1rem 1rem 0 0;
+}
