@@ -99,11 +99,3 @@ Project is available at:
     🔔 Email & push notifications for appointments
     
     🏥 Appointment booking with doctors
-
-admin
-admin123456789admin
-
-doctor
-user12345
-
-https://vetfuture-personal-account.onrender.com
