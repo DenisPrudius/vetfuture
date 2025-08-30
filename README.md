@@ -72,8 +72,8 @@ Run migrations and start the server:
 For testing purposes, you can use the following accounts:
 
 - **Admin panel and user account**  
-  🌐 [Django Admin, Login page](https://vetfuture-personal-account.onrender.com/admin/)
--    [Login page](https://vetfuture-personal-account.onrender.com/)
+  🌐 [Django Admin](https://vetfuture-personal-account.onrender.com/admin/)
+  🌐 [Login page](https://vetfuture-personal-account.onrender.com/)
   👤 Username: `admin`  
   🔑 Password: `admin123456789admin`
 
