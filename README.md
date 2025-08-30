@@ -65,6 +65,31 @@ Run migrations and start the server:
 ├── manage.py  
 └── README.md
 
+---
+
+## 🔑 Test Accounts
+
+For testing purposes, you can use the following accounts:
+
+- **Admin panel and user account**  
+  🌐 [Django Admin, Login page](https://vetfuture-personal-account.onrender.com/admin/)
+-    [Login page](https://vetfuture-personal-account.onrender.com/)
+  👤 Username: `admin`  
+  🔑 Password: `admin123456789admin`
+
+- **Doctor account**  
+  🌐 [Login page](https://vetfuture-personal-account.onrender.com/)  
+  👤 Username: `doctor`  
+  🔑 Password: `user12345`
+
+---
+
+## 🌍 Deployment
+
+Project is available at:  
+🔗 [https://vetfuture-personal-account.onrender.com](https://vetfuture-personal-account.onrender.com)
+
+
 📌 Roadmap
 
     📱 Mobile client / API integration
@@ -75,4 +100,10 @@ Run migrations and start the server:
     
     🏥 Appointment booking with doctors
 
+admin
+admin123456789admin
 
+doctor
+user12345
+
+https://vetfuture-personal-account.onrender.com
